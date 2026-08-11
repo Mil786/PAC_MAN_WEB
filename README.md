@@ -2,7 +2,7 @@
 
 Uma recriação do clássico jogo Pac-Man, feita com **HTML, CSS e JavaScript puro**, rodando direto no navegador.
 
-🔗 **Jogue aqui:** [ADICIONE O LINK DO SEU SITE AQUI]
+🔗 **Jogue aqui:** https://mil786.github.io/PAC_MAN_WEB/
 
 ---
 
