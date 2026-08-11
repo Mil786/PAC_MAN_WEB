@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac Man</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ca42bbbf84.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+
+    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/a/a2/Pac-Man_Logo.svg/langfr-1920px-Pac-Man_Logo.svg.png" alt="Logo Pac-Man" id="Logo">
+
+    <!-- TELA INICIAL: tutorial + botão jogar -->
+    <section id="startScreen">
+      <div class="tutorial">
+        <h2 class="tutorial-title">Como Jogar</h2>
+        <ul class="tutorial-list">
+          <li><i class="fa-solid fa-keyboard"></i> Use as setas <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd> (ou deslize o dedo no celular) para mover o Pac-Man.</li>
+          <li><span class="legend-dot"></span> Coma os pontinhos para ganhar <strong>10 pontos</strong> cada.</li>
+          <li><span class="legend-pellet"></span> As bolinhas grandes (Power Pellets) valem <strong>50 pontos</strong> e deixam os fantasmas assustados por alguns segundos.</li>
+          <li><span class="legend-ghost"></span> Com os fantasmas assustados (azuis), encoste neles para comer e ganhar <strong>200 pontos</strong>.</li>
+          <li><i class="fa-solid fa-heart"></i> Se um fantasma normal te pegar, você perde uma vida. Você começa com <strong>3 vidas</strong>.</li>
+          <li><i class="fa-solid fa-trophy"></i> Coma todos os pontos do labirinto para vencer a fase!</li>
+        </ul>
+      </div>
+
+      <button id="play">Clique para Começar</button>
+
+      <div id="historyPanel">
+        <h3>Últimas Pontuações</h3>
+        <ol id="historyList"><li class="empty">Nenhuma partida registrada ainda</li></ol>
+      </div>
+    </section>
+
+    <!-- TELA DO JOGO: só aparece depois de clicar em jogar -->
+    <section id="gameScreen" class="hidden-screen">
+
+      <section id="hud">
+        <div class="hud-item">
+          <span class="hud-label">Pontuação</span>
+          <span id="score">0</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Recorde</span>
+          <span id="bestScore">0</span>
+        </div>
+        <div class="hud-item">
+          <span class="hud-label">Vidas</span>
+          <span id="lives"></span>
+        </div>
+      </section>
+
+      <p id="computer">Use
+        <kbd>←</kbd>
+        <kbd>→</kbd>
+        <kbd>↑</kbd>
+        <kbd>↓</kbd>
+        para jogar
+      </p>
+
+      <p id="mobile">Deslize para cima, baixo, esquerda ou direita para mover o Pac-Man</p>
+
+      <div class="grid"></div>
+
+    </section>
+
+    <footer id="footer">
+      <p>Feito para <i class="fa-solid fa-heart" style="color:#ff0"></i> fins educacionais</p>
+    </footer>
+
+    <!-- MODAL de avisos (fim de jogo, vitória) -->
+    <div id="modalOverlay" class="hidden">
+      <div id="modalBox">
+        <i id="modalIcon" class="fa-solid fa-ghost"></i>
+        <h2 id="modalTitle">Fim de Jogo</h2>
+        <p id="modalText">Sua pontuação foi 0</p>
+        <div id="modalScores">
+          <p>Pontuação: <span id="modalScore">0</span></p>
+          <p>Recorde: <span id="modalBest">0</span></p>
+        </div>
+        <button id="modalButton">Jogar Novamente</button>
+      </div>
+    </div>
+
+  <script src="script.js" charset="utf-8"></script>
+  </body>
+
+</html>

@@ -1,0 +1,476 @@
+/* Reset geral e configurações base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Bungee', cursive;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Logo do Pac-Man */
+#Logo {
+  max-width: 400px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+/* Títulos e pontuação */
+h2 {
+  font-size: 24px;
+  margin: 10px 0 20px;
+  color: #ff0;
+  text-shadow: 2px 2px 4px rgba(255, 255, 0, 0.4);
+}
+
+span {
+  color: #fff;
+}
+
+/* Utilitário para alternar entre tela inicial e tela do jogo */
+.hidden-screen {
+  display: none !important;
+}
+
+/* ===================== TELA INICIAL / TUTORIAL ===================== */
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+#gameScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tutorial {
+  background-color: #0a0a1a;
+  border: 2px solid #0000ff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.tutorial-title {
+  font-size: 18px;
+  color: #ff0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.tutorial-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tutorial-list li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ddd;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.tutorial-list i {
+  color: #ff0;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tutorial-list strong {
+  color: #ff0;
+}
+
+.legend-dot,
+.legend-pellet,
+.legend-ghost {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.legend-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 0 6px;
+}
+
+.legend-pellet {
+  width: 14px;
+  height: 14px;
+  background-color: #ff0;
+  border-radius: 50%;
+}
+
+.legend-ghost {
+  width: 14px;
+  height: 14px;
+  background-color: #0000ff;
+  border-radius: 50% 50% 10% 10%;
+}
+
+/* Botão de começar */
+#play {
+  font-family: 'Bungee', cursive;
+  font-size: 20px;
+  padding: 15px 30px;
+  background-color: #ff0;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#play:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+/* Histórico de pontuações */
+#historyPanel {
+  background-color: #0a0a1a;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 15px 25px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#historyPanel h3 {
+  font-size: 15px;
+  color: #ff0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#historyList {
+  list-style: decimal;
+  padding-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#historyList .empty {
+  list-style: none;
+  text-align: center;
+  color: #666;
+  margin-left: -20px;
+}
+
+#historyList .new-record {
+  color: #ff0;
+  font-weight: bold;
+}
+
+/* ===================== HUD ===================== */
+#hud {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hud-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0a0a1a;
+  border: 2px solid #0000ff;
+  border-radius: 8px;
+  padding: 8px 18px;
+  min-width: 100px;
+}
+
+.hud-label {
+  font-size: 11px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.hud-item span:not(.hud-label) {
+  font-size: 18px;
+  color: #ff0;
+}
+
+#lives i {
+  color: #ff0;
+  margin: 0 2px;
+}
+
+/* Instruções */
+p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #ccc;
+  text-align: center;
+}
+
+kbd {
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 0 3px;
+  font-family: monospace;
+}
+
+#mobile {
+  display: none;
+}
+
+#footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* Grade do jogo */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(19, 30px);
+  grid-template-rows: repeat(21, 30px);
+  gap: 0;
+  background-color: #000;
+  border: 3px solid #0000ff;
+  margin: 10px 0 30px;
+}
+
+/* Células da grade */
+.grid div {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+/* Parede */
+.wall {
+  background-color: #0000ff;
+}
+
+/* Ponto pequeno */
+.dot {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+/* Power Pellet (ponto grande) */
+.power-pellet {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.power-pellet::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: #ff0;
+  border-radius: 50%;
+  animation: pulse 0.6s infinite alternate;
+}
+
+@keyframes pulse {
+  from { opacity: 0.6; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+
+/* Pac-Man */
+.pac-man {
+  background-color: #ff0;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fantasmas */
+.ghost {
+  border-radius: 50% 50% 10% 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.blinky { background-color: #ff0000; }
+.pinky   { background-color: #ffb8ff; }
+.inky    { background-color: #00ffff; }
+.clyde   { background-color: #ffb852; }
+
+.ghost-scared {
+  background-color: #0000ff !important;
+  animation: scared-blink 0.4s infinite alternate;
+}
+
+@keyframes scared-blink {
+  from { opacity: 1; }
+  to { opacity: 0.6; }
+}
+
+.ghost-eaten {
+  background-color: #fff;
+  border: 2px solid #0000ff;
+}
+
+/* ===================== MODAL DE AVISOS ===================== */
+#modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+
+#modalOverlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#modalBox {
+  background-color: #0a0a1a;
+  border: 3px solid #ff0;
+  border-radius: 14px;
+  padding: 35px 40px;
+  text-align: center;
+  max-width: 90%;
+  width: 380px;
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.3);
+  animation: modal-pop 0.25s ease;
+}
+
+@keyframes modal-pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+#modalIcon {
+  font-size: 40px;
+  color: #ff0;
+  margin-bottom: 10px;
+}
+
+#modalTitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+#modalText {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+#modalScores {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#modalScores span {
+  color: #ff0;
+  font-weight: bold;
+}
+
+#modalButton {
+  font-family: 'Bungee', cursive;
+  font-size: 16px;
+  padding: 12px 25px;
+  background-color: #ff0;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#modalButton:hover {
+  background-color: #ffd700;
+  transform: scale(1.05);
+}
+
+/* Responsividade para celular */
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: repeat(19, 18px);
+    grid-template-rows: repeat(21, 18px);
+  }
+
+  .grid div {
+    width: 18px;
+    height: 18px;
+  }
+
+  .dot::after {
+    width: 4px;
+    height: 4px;
+  }
+
+  .power-pellet::after {
+    width: 10px;
+    height: 10px;
+  }
+
+  #computer {
+    display: none;
+  }
+
+  #mobile {
+    display: block;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  #hud {
+    gap: 12px;
+  }
+
+  .hud-item {
+    min-width: 80px;
+    padding: 6px 10px;
+  }
+}
